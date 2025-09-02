@@ -19,6 +19,24 @@ const userRegister = async (req, res) => {
 };
 // END:: Register a new user
 
+// START:: Register a new driver
+const driverRegister = async (req, res) => {
+  try {
+    const { name, email, password, phone } = req.body;
+
+    const user = await driverModel.create({ name, email, password, phone });
+
+    res.status(200).json({
+      success: true,
+      message: "Driver registered successfully",
+      data: user
+    });
+  } catch (error) {
+    res.status(500).json({ success: false, message: error.message });
+  }
+};
+// END:: Register a new driver
+
 // START:: USER LOGIN FUNCTION
 const userLogin = async (req, res) => {
   try {
@@ -83,5 +101,5 @@ const driverLogin = async (req, res) => {
 
   
   // Export functions
-  module.exports = { userRegister, userLogin };
+  module.exports = { userRegister, userLogin, driverLogin, driverRegister };
   
