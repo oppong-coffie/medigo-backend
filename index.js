@@ -2,6 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 require("dotenv").config();
 const AuthRoute = require("./routes/authroute");
+const UserRoute = require("./routes/userroute");
 
 const app = express();
 
@@ -17,7 +18,8 @@ mongoose.connect(process.env.MONGO_URI, {
 .catch((err) => console.error("❌ MongoDB connection error:", err));
 
 // Routes
-app.use("/auth", AuthRoute);  // ✅ fixed
+app.use("/auth", AuthRoute); 
+app.use("/user", UserRoute);
 
 // Start server
 const PORT = process.env.PORT || 3000;

@@ -1,9 +1,9 @@
-// routes/homeRoutes.js
+// routes/userroute.js
 const express = require("express");
 const router = express.Router();
-const homeController = require("../controllers/homeController");
+const {postOrder} = require("../controllers/userController");
 
 // Define routes
-router.get("/", homeController.home);
+router.post("/postorder", postOrder);
 
 module.exports = router;

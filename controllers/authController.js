@@ -98,8 +98,6 @@ const driverLogin = async (req, res) => {
   }
 };
 // END:: DRIVER LOGIN FUNCTION
-
   
   // Export functions
   module.exports = { userRegister, userLogin, driverLogin, driverRegister };
-  
