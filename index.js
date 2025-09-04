@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 require("dotenv").config();
 const AuthRoute = require("./routes/authroute");
 const UserRoute = require("./routes/userroute");
+const DriverRoute = require("./routes/driverroute");
 
 const app = express();
 
@@ -20,6 +21,7 @@ mongoose.connect(process.env.MONGO_URI, {
 // Routes
 app.use("/auth", AuthRoute); 
 app.use("/user", UserRoute);
+app.use("/driver", DriverRoute);
 
 // Start server
 const PORT = process.env.PORT || 3000;
